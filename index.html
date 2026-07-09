@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Utopia Living — 7 residenze esclusive sulla collina di Barcaglione ad Ancona. Vista mare, giardini privati, energia quasi autonoma. Evento di presentazione 17 Luglio 2025.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Utopia Living — Residenze di Eccellenza · Ancona</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,sans-serif;font-weight:300;background:#fff;color:#3d3d3d;-webkit-font-smoothing:antialiased;margin:0}
+h1,h2,h3,h4{font-family:'Manrope',sans-serif;font-weight:700;color:#111;margin:0}
+a{text-decoration:none}
+
+/* ── Navbar ── */
+#nb{transition:background .35s,border-color .35s}
+#nb.on{background:#fff;border-bottom:1px solid #e5e5e3}
+
+/* ── Hero ── */
+.hbg{
+  position:relative;
+  overflow:hidden;
+  background:none;
+}
+/* ── KEN BURNS HERO ── */
+.hbg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+  z-index: 0;
+  will-change: transform;
+  transform-origin: center center;
+  animation: kb-zoom 8s cubic-bezier(0.37,0,0.63,1) infinite alternate both;
+  pointer-events: none;
+  user-select: none;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+@keyframes kb-zoom {
+  0%   { transform: scale(1.12); }
+  100% { transform: scale(1.22); }
+}
+.hbg-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to top,
+    rgba(8,10,16,0.80) 0%,
+    rgba(8,10,16,0.32) 52%,
+    rgba(8,10,16,0.10) 100%
+  );
+  pointer-events: none;
+}
+.hbg > *:not(.hbg-img):not(.hbg-overlay) {
+  position: relative;
+  z-index: 2;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hbg-img { animation: none; transform: scale(1.16); }
+}
+
+
+/* ── Stats bar ── */
+.sitem + .sitem{border-left:1px solid #e5e5e3}
+
+/* ── Feature cell ── */
+.fcell{border-bottom:1px solid #e5e5e3;transition:background .18s}
+.fcell:hover{background:#eeecea}
+.ficon{width:36px;height:36px;border:1px solid #ddd8d0;display:flex;align-items:center;justify-content:center;color:#C4A77D;flex-shrink:0;margin-bottom:1.1rem}
+
+/* ── Typology row ── */
+.trow{border-bottom:1px solid #e5e5e3;cursor:pointer;transition:background .18s}
+.trow:hover{background:#f7f7f5}
+
+/* ── Form ── */
+.fld{display:block;width:100%;background:#fafaf8;border:1px solid #e5e5e3;padding:12px 16px;font-family:'DM Sans',sans-serif;font-size:14px;color:#111;transition:border-color .2s,box-shadow .2s}
+.fld:focus{outline:none;border-color:#C4A77D;box-shadow:0 0 0 3px rgba(196,167,125,.12)}
+
+/* ── Reveal ── */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}
+.rv.on{opacity:1;transform:none}
+.d1{transition-delay:.09s}.d2{transition-delay:.18s}.d3{transition-delay:.27s}
+
+/* ── Energy icon ── */
+.ei{width:40px;height:40px;border:1px solid rgba(196,167,125,.35);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:1rem}
+
+
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVE CSS — Utopia Living
+   Mobile: ≤767px | Tablet: 768–1023px
+   ══════════════════════════════════════════════════ */
+
+/* Globale */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { overflow-x: hidden !important; }
+img  { max-width: 100%; height: auto; display: block; }
+
+/* ── NAVBAR ─────────────────────────────────────── */
+@media (max-width: 767px) {
+  #nb { padding: 8px 1rem !important; }
+  #nlogo { height: 60px !important; width: auto !important; }
+  #ncta  { padding: 8px 11px !important; font-size: 9px !important;
+            letter-spacing: .08em !important; white-space: nowrap; }
+}
+@media (max-width: 360px) {
+  #nlogo { height: 48px !important; }
+  #ncta  { padding: 7px 9px !important; font-size: 8px !important; }
+}
+
+/* ── HERO ────────────────────────────────────────── */
+@media (max-width: 767px) {
+  section.hbg {
+    min-height: 100svh !important;
+    padding-bottom: 3rem !important;
+    align-items: flex-end !important;
+  }
+  section.hbg > div.max-w-6xl {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    padding-bottom: 3rem !important;
+  }
+  section.hbg h1 { font-size: clamp(30px,8vw,46px) !important; }
+  section.hbg p  { font-size: 13px !important; }
+  section.hbg a  { padding: 11px 18px !important; font-size: 9px !important; }
+}
+
+/* ── EVENTO BANNER ───────────────────────────────── */
+@media (max-width: 767px) {
+  #evento > div > div > div {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: .9rem !important;
+  }
+  #evento a { width: 100% !important; justify-content: center !important; box-sizing: border-box !important; }
+}
+
+/* ── STATS BAR ───────────────────────────────────── */
+@media (max-width: 767px) {
+  #nb + div .grid, #nb + div [class*="grid"] {
+    grid-template-columns: repeat(2,1fr) !important;
+  }
+  .sitem {
+    border-left: none !important;
+    border-top: .5px solid #e5e5e3 !important;
+    padding: .9rem .75rem !important;
+  }
+  .sitem:first-child { border-top: none !important; }
+  .sitem:nth-child(even) { border-left: .5px solid #e5e5e3 !important; }
+}
+
+/* ── SEZIONI PADDING ─────────────────────────────── */
+@media (max-width: 767px) {
+  section[id] { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+  .max-w-6xl  { padding-left: 1rem !important; padding-right: 1rem !important; }
+  [style*="max-width:1152px"] { padding-left: 1rem !important; padding-right: 1rem !important; }
+}
+
+/* ── IL PROGETTO ─────────────────────────────────── */
+@media (max-width: 767px) {
+  #progetto .grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+  #progetto [style*="aspect-ratio"] { max-height: 240px !important; overflow: hidden !important; }
+  #progetto [style*="aspect-ratio"] img { max-height: 240px !important; width: 100% !important; object-fit: cover !important; }
+}
+
+/* ── ENERGIA (sezione nera) ──────────────────────── */
+@media (max-width: 767px) {
+  #energia { padding: 2.5rem 1rem !important; }
+  #energia .grid { grid-template-columns: 1fr !important; gap: 1.25rem !important; }
+  #energia [style*="background:rgba(255,255,255,.08)"] { grid-template-columns: 1fr !important; }
+  #energia [style*="padding:2.5rem 2rem"] { padding: 1.25rem 1rem !important; }
+}
+
+/* ── CARATTERISTICHE ─────────────────────────────── */
+@media (max-width: 767px) {
+  #caratteristiche { padding: 2.5rem 1rem !important; }
+  #caratteristiche [style*="gap-px"], #caratteristiche .grid {
+    grid-template-columns: 1fr !important;
+  }
+  #caratteristiche [style*="padding:2rem"] { padding: 1.25rem !important; }
+  #caratteristiche .lg\:col-span-2 { min-height: 160px !important; }
+}
+
+/* ── RESIDENZE ───────────────────────────────────── */
+@media (max-width: 767px) {
+  /* Stack tabella + immagine */
+  #appartamenti > .max-w-6xl > div > .grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+  /* Immagine terrazza ridotta */
+  #appartamenti [style*="min-height:480px"] {
+    min-height: 200px !important;
+    max-height: 200px !important;
+  }
+  /* Tabella: scroll orizzontale */
+  #appartamenti [style*="border-top:1px solid #e5e5e3;overflow-x:auto"] {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .trow { min-width: 340px !important; font-size: 13px !important; }
+  #appartamenti [style*="border-bottom:2px solid #e5e5e3"] { min-width: 340px !important; }
+}
+
+/* ── PLANIMETRIE CAROSELLO ───────────────────────── */
+@media (max-width: 767px) {
+  #appartamenti > .max-w-6xl > div + div { padding: 0 .5rem !important; }
+  .fl-ab  { padding: 5px 8px !important; font-size: 9px !important; }
+  .fl-pb  { padding: 4px 8px !important; font-size: 9px !important; }
+  .fl-img { max-height: 60vh !important; width: 100% !important; object-fit: contain !important; }
+}
+
+/* ── COMMERCIALIZZAZIONE ─────────────────────────── */
+@media (max-width: 767px) {
+  #comm-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+  #commercializzazione img[alt*="Diego"] { max-height: 260px !important; object-fit: contain !important; }
+  #commercializzazione a[href*="ghergo"] { font-size: 13px !important; }
+}
+
+/* ── FORM CONTATTI ───────────────────────────────── */
+@media (max-width: 767px) {
+  #contatti > .max-w-6xl > div { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+  #contatti [style*="padding:2.5rem"] { padding: 1.25rem 1rem !important; }
+  #contact-form [style*="grid-template-columns:1fr 1fr"] {
+    display: flex !important; flex-direction: column !important; gap: 14px !important;
+  }
+  .fld { font-size: 16px !important; } /* Anti-zoom iOS */
+  select.fld { font-size: 16px !important; }
+  textarea.fld { font-size: 16px !important; }
+}
+
+/* ── FOOTER ──────────────────────────────────────── */
+@media (max-width: 767px) {
+  footer { padding: 2rem 0 !important; }
+  footer > div { padding-left: 1rem !important; padding-right: 1rem !important; }
+  footer > div > div:first-child {
+    flex-direction: column !important; align-items: center !important;
+    text-align: center !important; gap: 1rem !important;
+  }
+  footer nav { justify-content: center !important; flex-wrap: wrap !important; gap: .6rem !important; }
+  footer img[alt="Utopia Living"] { height: 68px !important; }
+}
+
+/* ── TABLET 768–1023 ─────────────────────────────── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .max-w-6xl { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+  #energia [style*="background:rgba(255,255,255,.08)"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  #caratteristiche .grid { grid-template-columns: repeat(2,1fr) !important; }
+  #comm-grid { gap: 2rem !important; }
+}
+
+/* ── TOUCH E ACCESSIBILITÀ ───────────────────────── */
+@media (max-width: 767px) {
+  a, button { -webkit-tap-highlight-color: transparent; }
+  button, .fl-ab, .fl-pb { min-height: 40px; cursor: pointer; }
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- ═══════════ NAVBAR ═══════════ -->
+<nav id="nb" class="fixed top-0 inset-x-0 z-50 px-6" style="border-bottom:1px solid transparent;padding-top:18px;padding-bottom:18px">
+  <div class="max-w-6xl mx-auto flex items-center justify-between">
+    <a href="#" style="display:flex;align-items:center;padding:4px 0">
+      <img
+        id="nlogo"
+        src="images/utopia-logo.png"
+        width="114" height="100"
+        alt="Utopia Living"
+        style="height:100px;width:auto;display:block;object-fit:contain;transition:opacity .3s ease"
+      >
+    </a>
+    <a id="ncta" href="#contatti" style="font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#fff;border:2px solid rgba(255,255,255,.45);padding:14px 34px;transition:all .25s">
+      Contattaci
+    </a>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hbg" style="min-height:100vh;display:flex;align-items:flex-end">
+  <!-- ── Ken Burns background ── -->
+  <img
+    class="hbg-img"
+    src="images/hero-bg.jpg"
+    width="1600" height="900"
+    alt="Utopia Living — vista aerea sulla campagna marchigiana e il mare Adriatico"
+    fetchpriority="high"
+    decoding="async"
+  >
+  <div class="hbg-overlay" aria-hidden="true"></div>
+  <!-- ─────────────────────────── -->
+  <div class="max-w-6xl mx-auto px-6 w-full" style="padding-bottom:5rem;padding-top:8rem">
+    <p class="rv" style="display:flex;align-items:center;gap:14px;margin-bottom:1.5rem">
+      <span style="display:block;width:30px;height:2px;background:#C4A77D;flex-shrink:0"></span>
+      <span style="font-family:'Manrope',sans-serif;font-size:16px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#C4A77D">Collina di Barcaglione · Ancona</span>
+    </p>
+    <h1 class="rv" style="color:#fff;font-size:clamp(46px,7.5vw,92px);font-weight:800;line-height:1;letter-spacing:-.025em;margin-bottom:1.25rem">
+      Utopia Living
+    </h1>
+    <p class="rv d1" style="color:rgba(255,255,255,.65);font-size:16px;line-height:1.75;max-width:520px;margin-bottom:2.5rem">
+      Un residence esclusivo che rende reale l'idea di vivere immersi nella quiete della campagna marchigiana senza rinunciare al comfort contemporaneo.
+    </p>
+    <div class="rv d2" style="display:flex;gap:12px;flex-wrap:wrap">
+      <a href="#progetto" style="display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.7);font-family:'Manrope',sans-serif;font-weight:600;font-size:10px;letter-spacing:.16em;text-transform:uppercase;border:1px solid rgba(255,255,255,.25);padding:14px 28px;transition:all .25s" onmouseover="this.style.borderColor='rgba(255,255,255,.6)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,.25)';this.style.color='rgba(255,255,255,.7)'">
+        Scopri di più
+        <i data-lucide="arrow-down" style="width:12px;height:12px"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ EVENTO 17 LUGLIO ═══════════ -->
+<section id="evento" style="background:#06101E;padding:0;overflow:hidden">
+  <div style="background:linear-gradient(90deg,#C4A77D 0%,#E2C895 50%,#C4A77D 100%);height:3px"></div>
+  <div style="padding:1.75rem 1.5rem">
+    <div style="max-width:1152px;margin:0 auto">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap">
+          <div style="background:#C4A77D;padding:.65rem 1.1rem;text-align:center;flex-shrink:0;min-width:70px;border-radius:2px">
+            <div style="font-family:'Manrope',sans-serif;font-size:8px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#111;margin-bottom:2px">Luglio</div>
+            <div style="font-family:'Manrope',sans-serif;font-size:40px;font-weight:800;color:#111;line-height:1">17</div>
+            <div style="font-family:'DM Sans',sans-serif;font-size:8px;color:#111;opacity:.7;letter-spacing:.12em;text-transform:uppercase;margin-top:2px">2025</div>
+          </div>
+          <div>
+            <p style="font-family:'Manrope',sans-serif;font-size:8.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#C4A77D;margin-bottom:4px">Evento Esclusivo &nbsp;·&nbsp; SU PRENOTAZIONE</p>
+            <h3 style="font-family:'Manrope',sans-serif;font-size:clamp(15px,2.5vw,21px);font-weight:800;color:#fff;margin-bottom:4px;line-height:1.2">Presentazione Ufficiale di Utopia Living</h3>
+            <p style="font-family:'DM Sans',sans-serif;font-size:13px;color:rgba(255,255,255,.5);line-height:1.5">
+              📍 Showroom Comes - Ancona &nbsp;&nbsp;|&nbsp;&nbsp; Una serata per scoprire il progetto, incontrare il team e riservare la tua residenza
+            </p>
+          </div>
+        </div>
+        <a href="https://ghergo-immobiliare-webapp.vercel.app/open-house/fb341f68-ecb3-40da-be44-12574a1fe84e" target="_blank" rel="noopener noreferrer"
+           style="display:inline-flex;align-items:center;gap:8px;background:#C4A77D;color:#111;font-family:'Manrope',sans-serif;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:13px 26px;text-decoration:none;flex-shrink:0;white-space:nowrap;border-radius:2px;transition:opacity .2s"
+           onmouseover="this.style.opacity='.82'" onmouseout="this.style.opacity='1'">
+          <i data-lucide="calendar-check" style="width:15px;height:15px"></i>
+          PRENOTATI ALL'EVENTO
+        </a>
+      </div>
+    </div>
+  </div>
+  <div style="background:#C4A77D;height:1px;opacity:.2"></div>
+</section>
+
+<!-- ═══════════ STATS BAR ═══════════ -->
+<div style="background:#fff;border-bottom:1px solid #e5e5e3">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-2 md:grid-cols-5">
+      <div class="sitem" style="padding:1.6rem 1.5rem 1.6rem 0">
+        <div style="font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#999;margin-bottom:5px">Zona</div>
+        <div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;color:#111">Barcaglione, Ancona</div>
+      </div>
+      <div class="sitem" style="padding:1.6rem 1.5rem">
+        <div style="font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#999;margin-bottom:5px">Prezzo</div>
+        <div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;color:#111">da € 295.000</div>
+      </div>
+      <div class="sitem" style="padding:1.6rem 1.5rem">
+        <div style="font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#999;margin-bottom:5px">N. Unità</div>
+        <div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;color:#111">7</div>
+      </div>
+      <div class="sitem" style="padding:1.6rem 1.5rem">
+        <div style="font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#999;margin-bottom:5px">Consegna</div>
+        <div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;color:#111">2027</div>
+      </div>
+      <div class="sitem" style="padding:1.6rem 0 1.6rem 1.5rem">
+        <div style="font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#999;margin-bottom:5px">Classe Energetica</div>
+        <div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;color:#111">A4</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ IL PROGETTO ═══════════ -->
+<section id="progetto" style="padding:6rem 0;background:#fff">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="rv">
+        <p style="font-family:'Manrope',sans-serif;font-size:9px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#C4A77D;margin-bottom:12px">Il Progetto</p>
+        <h2 style="font-size:clamp(26px,3.8vw,42px);line-height:1.2;margin-bottom:1.5rem">
+          L'Utopia di Vivere Liberi<br>Diventa Casa
+        </h2>
+        <p style="font-size:15px;line-height:1.88;color:#555;margin-bottom:1.2rem">
+          Nella cornice più prestigiosa ed esclusiva della collina di Barcaglione, in una posizione predominante che domina l'intera città di Ancona, sorge Utopia Living.
+        </p>
+        <p style="font-size:15px;line-height:1.88;color:#555;margin-bottom:2.5rem">
+          Un residence esclusivo nato per rendere reale un'idea di casa che sembrava lontana: vivere immersi nella quiete della campagna marchigiana senza rinunciare al comfort contemporaneo; sentirsi liberi e indipendenti, rimanendo a pochissimi minuti da tutti i principali servizi urbani.
+        </p>
+        <div class="grid grid-cols-3 gap-6" style="padding-top:1.75rem;border-top:1px solid #e5e5e3">
+          <div>
+            <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:28px;color:#111;line-height:1">7</div>
+            <div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#999;margin-top:5px">Unità</div>
+          </div>
+          <div>
+            <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:28px;color:#111;line-height:1">A4</div>
+            <div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#999;margin-top:5px">Energetica</div>
+          </div>
+          <div>
+            <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:28px;color:#111;line-height:1">2027</div>
+            <div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#999;margin-top:5px">Consegna</div>
+          </div>
+        </div>
+      </div>
+      <div class="rv d1 overflow-hidden" style="aspect-ratio:4/3;background:#eee">
+        <img src="images/render-esterno-colline.jpg" alt="Utopia Living — render esterno" style="width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ECOSISTEMA ENERGETICO ═══════════ -->
+<section id="energia" style="background:#111;padding:6rem 0">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-14 items-start" style="margin-bottom:4rem">
+      <div class="rv">
+        <p style="font-family:'Manrope',sans-serif;font-size:9px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#C4A77D;margin-bottom:12px">Energia &amp; Sostenibilità</p>
+        <h2 style="color:#fff;font-size:clamp(24px,3.5vw,40px);line-height:1.2">
+          L'Ecosistema Energetico: Autonomia e Sostenibilità Proiettata al 2050
+        </h2>
+      </div>
+      <div class="rv d1">
+        <p style="color:rgba(255,255,255,.55);font-size:15px;line-height:1.88;margin-bottom:1rem">
+          Utopia Living non è semplicemente un luogo in cui risiedere, ma uno scudo definitivo contro l'incertezza del futuro energetico. Il progetto rappresenta un investimento d'eccellenza, già oggi conforme alle più stringenti normative europee previste fino al 2050.
+        </p>
+        <p style="color:rgba(255,255,255,.35);font-size:15px;line-height:1.88">
+          Ogni dimora è un gioiello di ingegneria a impatto quasi zero, concepito per raggiungere una quasi totale autosufficienza energetica <strong style="color:rgba(255,255,255,.65);font-weight:500">(85–90%)</strong>.
+        </p>
+      </div>
+    </div>
+    <div class="rv grid grid-cols-1 md:grid-cols-3 gap-px" style="background:rgba(255,255,255,.08)">
+      <div style="background:#111;padding:2.5rem 2rem">
+        <div class="ei">
+          <svg width="20" height="28" viewBox="0 0 34 48" fill="none">
+            <path d="M16.5 18 L15 44" stroke="#C4A77D" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M17.5 18 L19 44" stroke="#C4A77D" stroke-width="1.4" stroke-linecap="round"/>
+            <line x1="9" y1="44" x2="25" y2="44" stroke="#C4A77D" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="17" cy="16" r="2.5" fill="#C4A77D"/>
+            <path d="M17 13.5 C15.8 9 14.2 4.5 16 1.5 C18 4 18.8 9 17.5 13.5Z" fill="#C4A77D" opacity=".88"/>
+            <path d="M19.2 17.2 C22.5 19 26 21 28.5 19.5 C26.5 17.5 22.5 16.8 19.2 17.2Z" fill="#C4A77D" opacity=".88"/>
+            <path d="M14.8 17.2 C11.5 19 8 21 5.5 19.5 C7.5 17.5 11.5 16.8 14.8 17.2Z" fill="#C4A77D" opacity=".88"/>
+          </svg>
+        </div>
+        <h3 style="color:#fff;font-size:15px;font-weight:700;margin-bottom:8px">10 KW · Micro-Grid Fotovoltaica e Mini-Eolico</h3>
+        <p style="color:rgba(255,255,255,.45);font-size:13.5px;line-height:1.75">Impianto fotovoltaico da 10 kW per unità + mini-eolico per produzione di energia pulita e costante, giorno e notte.</p>
+      </div>
+      <div style="background:#111;padding:2.5rem 2rem">
+        <div class="ei">
+          <svg width="18" height="28" viewBox="0 0 26 48" fill="none">
+            <rect x="8.5" y="1" width="9" height="4.5" rx="1.5" stroke="#C4A77D" stroke-width="1.4"/>
+            <rect x="2" y="5.5" width="22" height="41" rx="2.5" stroke="#C4A77D" stroke-width="1.4"/>
+            <rect x="5" y="8.5" width="16" height="6" rx="1" fill="#C4A77D"/>
+            <rect x="5" y="17" width="16" height="6" rx="1" fill="#C4A77D"/>
+            <rect x="5" y="25.5" width="16" height="6" rx="1" fill="#C4A77D" opacity=".55"/>
+            <rect x="5" y="34" width="16" height="6" rx="1" stroke="#C4A77D" stroke-width="1" fill="none" opacity=".3"/>
+          </svg>
+        </div>
+        <h3 style="color:#fff;font-size:15px;font-weight:700;margin-bottom:8px">Batterie di Bordo di Ultima Generazione</h3>
+        <p style="color:rgba(255,255,255,.45);font-size:13.5px;line-height:1.75">Accumulo avanzato per stoccare energia e ricaricare gratuitamente l'auto elettrica ogni giorno.</p>
+      </div>
+      <div style="background:#111;padding:2.5rem 2rem">
+        <div class="ei">
+          <svg width="46" height="38" viewBox="0 0 46 38" fill="none">
+            <!-- Aria fresca IN sinistra alto -->
+            <path d="M1 8 L12 8" stroke="#C4A77D" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M10 5 L13 8 L10 11" stroke="#C4A77D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Aria trattata OUT destra basso -->
+            <path d="M33 30 L45 30" stroke="#C4A77D" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M43 27 L45 30 L43 33" stroke="#C4A77D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Aria viziata IN destra alto (tenue) -->
+            <path d="M33 8 L45 8" stroke="#C4A77D" stroke-width="1.2" stroke-linecap="round" opacity=".38"/>
+            <path d="M35 5 L33 8 L35 11" stroke="#C4A77D" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity=".38"/>
+            <!-- Aria viziata OUT sinistra basso (tenue) -->
+            <path d="M1 30 L12 30" stroke="#C4A77D" stroke-width="1.2" stroke-linecap="round" opacity=".38"/>
+            <path d="M3 27 L1 30 L3 33" stroke="#C4A77D" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity=".38"/>
+            <!-- Box unità VMC -->
+            <rect x="12" y="2" width="21" height="34" rx="2.5" stroke="#C4A77D" stroke-width="1.5"/>
+            <!-- Griglia scambiatore di calore -->
+            <line x1="16" y1="5" x2="16" y2="33" stroke="#C4A77D" stroke-width="0.8" opacity=".4"/>
+            <line x1="19.5" y1="5" x2="19.5" y2="33" stroke="#C4A77D" stroke-width="0.8" opacity=".4"/>
+            <line x1="23" y1="5" x2="23" y2="33" stroke="#C4A77D" stroke-width="0.8" opacity=".4"/>
+            <line x1="26.5" y1="5" x2="26.5" y2="33" stroke="#C4A77D" stroke-width="0.8" opacity=".4"/>
+            <line x1="12" y1="11" x2="33" y2="11" stroke="#C4A77D" stroke-width="0.8" opacity=".4"/>
+            <line x1="12" y1="19" x2="33" y2="19" stroke="#C4A77D" stroke-width="0.8" opacity=".4"/>
+            <line x1="12" y1="27" x2="33" y2="27" stroke="#C4A77D" stroke-width="0.8" opacity=".4"/>
+          </svg>
+        </div>
+        <h3 style="color:#fff;font-size:15px;font-weight:700;margin-bottom:8px">Ventilazione Meccanica Controllata</h3>
+        <p style="color:rgba(255,255,255,.45);font-size:13.5px;line-height:1.75">VMC h24 con recupero di calore e deumidificazione + pavimento radiante a zone per comfort ottimale in ogni stagione.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CARATTERISTICHE ═══════════ -->
+<section id="caratteristiche" style="background:#f5f5f3;padding:6rem 0">
+  <div class="max-w-6xl mx-auto px-6">
+    <div style="margin-bottom:3rem" class="rv">
+      <p style="font-family:'Manrope',sans-serif;font-size:9px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#C4A77D;margin-bottom:10px">I dettagli che contano</p>
+      <h2 style="font-size:clamp(26px,3.8vw,42px)">Caratteristiche Esclusive</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px" style="background:#e0ddd8">
+      <div class="fcell rv" style="background:#f5f5f3;padding:2rem">
+        <div class="ficon"><i data-lucide="layers" style="width:15px;height:15px"></i></div>
+        <h3 style="font-size:14px;font-weight:700;color:#111;margin-bottom:7px">Sviluppo su Due Livelli</h3>
+        <p style="font-size:13px;color:#666;line-height:1.75">Ambienti ampi, ariosi e luminosi distribuiti su due livelli indipendenti per massima libertà.</p>
+      </div>
+      <div class="fcell rv d1" style="background:#f5f5f3;padding:2rem">
+        <div class="ficon"><i data-lucide="eye" style="width:15px;height:15px"></i></div>
+        <h3 style="font-size:14px;font-weight:700;color:#111;margin-bottom:7px">Architettura e Paesaggio</h3>
+        <p style="font-size:13px;color:#666;line-height:1.75">Living aperti verso valle con viste privilegiate su Ancona e sul mare Adriatico.</p>
+      </div>
+      <div class="fcell rv d2" style="background:#f5f5f3;padding:2rem">
+        <div class="ficon"><i data-lucide="leaf" style="width:15px;height:15px"></i></div>
+        <h3 style="font-size:14px;font-weight:700;color:#111;margin-bottom:7px">Spazi Esterni Generosi</h3>
+        <p style="font-size:13px;color:#666;line-height:1.75">Ampi giardini privati esclusivi per godere della bellezza naturale circostante.</p>
+      </div>
+      <div class="fcell rv" style="background:#f5f5f3;padding:2rem">
+        <div class="ficon"><i data-lucide="car" style="width:15px;height:15px"></i></div>
+        <h3 style="font-size:14px;font-weight:700;color:#111;margin-bottom:7px">Parcheggio Privato</h3>
+        <p style="font-size:13px;color:#666;line-height:1.75">3 posti auto riservati per ogni unità, con predisposizione ricarica elettrica inclusa.</p>
+      </div>
+      <div class="fcell rv d1" style="background:#f5f5f3;padding:2rem">
+        <div class="ficon"><i data-lucide="zap" style="width:15px;height:15px"></i></div>
+        <h3 style="font-size:14px;font-weight:700;color:#111;margin-bottom:7px">Micro-Grid Energetica</h3>
+        <p style="font-size:13px;color:#666;line-height:1.75">10 kW fotovoltaico + mini-eolico: energia pulita costante giorno e notte.</p>
+      </div>
+      <div class="fcell rv d2" style="background:#f5f5f3;padding:2rem">
+        <div class="ficon"><i data-lucide="battery-charging" style="width:15px;height:15px"></i></div>
+        <h3 style="font-size:14px;font-weight:700;color:#111;margin-bottom:7px">Accumulo di Bordo</h3>
+        <p style="font-size:13px;color:#666;line-height:1.75">Batterie ultima generazione + ricarica auto elettrica quotidiana gratuita.</p>
+      </div>
+      <div class="fcell rv" style="background:#f5f5f3;padding:2rem">
+        <div class="ficon"><i data-lucide="thermometer" style="width:15px;height:15px"></i></div>
+        <h3 style="font-size:14px;font-weight:700;color:#111;margin-bottom:7px">Comfort Termico Totale</h3>
+        <p style="font-size:13px;color:#666;line-height:1.75">VMC h24 con recupero di calore + pavimento radiante a zone per eccellenza in ogni stagione.</p>
+      </div>
+      <div class="rv lg:col-span-2 overflow-hidden" style="background:#ddd;min-height:220px">
+        <img src="images/carport-solare.jpg" alt="Utopia Living — carport fotovoltaico" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LE RESIDENZE ═══════════ -->
+<section id="appartamenti" style="background:#fff;padding:6rem 0">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-[1fr_1fr] gap-16" style="align-items:stretch">
+
+      <!-- Tabella unità -->
+      <div>
+        <div class="rv" style="margin-bottom:2.5rem">
+          <p style="font-family:'Manrope',sans-serif;font-size:9px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#C4A77D;margin-bottom:10px">Scegli il tuo spazio</p>
+          <h2 style="font-size:clamp(26px,3.8vw,42px)">Le Residenze</h2>
+        </div>
+        <div style="border-top:1px solid #e5e5e3;overflow-x:auto;-webkit-overflow-scrolling:touch">
+          <!-- Header -->
+          <div class="rv" style="display:grid;grid-template-columns:1.8fr 70px 105px 155px;padding:10px 0;border-bottom:2px solid #e5e5e3">
+            <div style="font-family:'Manrope',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#999">Identificativo</div>
+            <div style="font-family:'Manrope',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#999">Mq</div>
+            <div style="font-family:'Manrope',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#999">Mq Giardino</div>
+            <div style="font-family:'Manrope',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#999">Prezzo</div>
+          </div>
+          <!-- Appartamento 1 -->
+          <div class="trow rv" style="display:grid;grid-template-columns:1.8fr 70px 105px 155px" style="padding:18px 0;border-bottom:1px solid #e5e5e3" onclick="document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">
+            <div><div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;color:#111">Appartamento 1</div></div>
+            <div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#111;align-self:start;padding-top:1px">132</div>
+            <div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#111;align-self:start;padding-top:1px">411</div>
+            <div><div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#111">€ 590.000</div><div style="font-size:10px;color:#C4A77D;margin-top:3px;font-weight:500;font-family:'Manrope',sans-serif">Disponibile →</div></div>
+          </div>
+          <!-- Appartamento 2 -->
+          <div class="trow rv d1" style="display:grid;grid-template-columns:1.8fr 70px 105px 155px" style="padding:18px 0;border-bottom:1px solid #e5e5e3" onclick="document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">
+            <div><div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;color:#111">Appartamento 2</div></div>
+            <div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#111;align-self:start;padding-top:1px">80</div>
+            <div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#111;align-self:start;padding-top:1px">130</div>
+            <div><div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#111">€ 298.000</div><div style="font-size:10px;color:#C4A77D;margin-top:3px;font-weight:500;font-family:'Manrope',sans-serif">Disponibile →</div></div>
+          </div>
+          <!-- Appartamento 3 -->
+          <div class="trow rv d2" style="display:grid;grid-template-columns:1.8fr 70px 105px 155px" style="padding:18px 0;border-bottom:1px solid #e5e5e3" onclick="document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">
+            <div><div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;color:#111">Appartamento 3</div></div>
+            <div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#111;align-self:start;padding-top:1px">138</div>
+            <div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#111;align-self:start;padding-top:1px">218</div>
+            <div><div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#111">€ 575.000</div><div style="font-size:10px;color:#C4A77D;margin-top:3px;font-weight:500;font-family:'Manrope',sans-serif">Disponibile →</div></div>
+          </div>
+          <!-- Appartamento 4 -->
+          <div class="trow rv" style="display:grid;grid-template-columns:1.8fr 70px 105px 155px" style="padding:18px 0;border-bottom:1px solid #e5e5e3" onclick="document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">
+            <div><div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;color:#111">Appartamento 4</div></div>
+            <div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#111;align-self:start;padding-top:1px">118</div>
+            <div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#111;align-self:start;padding-top:1px">187</div>
+            <div><div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#111">€ 495.000</div><div style="font-size:10px;color:#C4A77D;margin-top:3px;font-weight:500;font-family:'Manrope',sans-serif">Disponibile →</div></div>
+          </div>
+          <!-- Appartamento 5 -->
+          <div class="trow rv d1" style="display:grid;grid-template-columns:1.8fr 70px 105px 155px" style="padding:18px 0;border-bottom:1px solid #e5e5e3" onclick="document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">
+            <div><div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;color:#111">Appartamento 5</div></div>
+            <div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#111;align-self:start;padding-top:1px">112</div>
+            <div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#111;align-self:start;padding-top:1px">192</div>
+            <div><div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#111">€ 475.000</div><div style="font-size:10px;color:#C4A77D;margin-top:3px;font-weight:500;font-family:'Manrope',sans-serif">Disponibile →</div></div>
+          </div>
+          <!-- Appartamento 6 -->
+          <div class="trow rv d2" style="display:grid;grid-template-columns:1.8fr 70px 105px 155px" style="padding:18px 0;border-bottom:1px solid #e5e5e3" onclick="document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">
+            <div><div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;color:#111">Appartamento 6</div></div>
+            <div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#111;align-self:start;padding-top:1px">74</div>
+            <div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#111;align-self:start;padding-top:1px">192</div>
+            <div><div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#111">€ 298.000</div><div style="font-size:10px;color:#C4A77D;margin-top:3px;font-weight:500;font-family:'Manrope',sans-serif">Disponibile →</div></div>
+          </div>
+          <!-- Appartamento 7 -->
+          <div class="trow rv" style="display:grid;grid-template-columns:1.8fr 70px 105px 155px" style="padding:18px 0" onclick="document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">
+            <div><div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;color:#111">Appartamento 7</div></div>
+            <div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#111;align-self:start;padding-top:1px">126</div>
+            <div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#111;align-self:start;padding-top:1px">690</div>
+            <div><div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#111">€ 615.000</div><div style="font-size:10px;color:#C4A77D;margin-top:3px;font-weight:500;font-family:'Manrope',sans-serif">Disponibile →</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Immagine lato destro — terrazza con piscina e vista Ancona -->
+      <div class="rv d1" style="background:#eee;position:relative;min-height:480px;overflow:hidden">
+        <img src="images/terrazza-piscina.jpg" alt="Utopia Living — terrazza con piscina e vista su Ancona" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center">
+      </div>
+
+    </div>
+  </div>
+
+<div class="rv" style="max-width:1152px;margin:0 auto;padding:4rem 1.5rem 0">
+  <div style="margin-bottom:1.5rem">
+    <p style="font-family:Manrope,sans-serif;font-size:9px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#C4A77D;margin-bottom:8px">Planimetrie</p>
+    <h3 style="font-family:Manrope,sans-serif;font-weight:700;font-size:22px;color:#111;margin:0">Consulta le Planimetrie</h3>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.5rem">
+<button class="fl-ab" data-n="1" onclick="flApt(1)" style="padding:8px 14px;border:1px solid #e5e5e3;background:#111;color:#fff;cursor:pointer;font-family:Manrope,sans-serif;font-size:11px;font-weight:600;letter-spacing:.06em;transition:all .2s">Appartamento 1</button>
+<button class="fl-ab" data-n="2" onclick="flApt(2)" style="padding:8px 14px;border:1px solid #e5e5e3;background:#fff;color:#555;cursor:pointer;font-family:Manrope,sans-serif;font-size:11px;font-weight:600;letter-spacing:.06em;transition:all .2s">Appartamento 2</button>
+<button class="fl-ab" data-n="3" onclick="flApt(3)" style="padding:8px 14px;border:1px solid #e5e5e3;background:#fff;color:#555;cursor:pointer;font-family:Manrope,sans-serif;font-size:11px;font-weight:600;letter-spacing:.06em;transition:all .2s">Appartamento 3</button>
+<button class="fl-ab" data-n="4" onclick="flApt(4)" style="padding:8px 14px;border:1px solid #e5e5e3;background:#fff;color:#555;cursor:pointer;font-family:Manrope,sans-serif;font-size:11px;font-weight:600;letter-spacing:.06em;transition:all .2s">Appartamento 4</button>
+<button class="fl-ab" data-n="5" onclick="flApt(5)" style="padding:8px 14px;border:1px solid #e5e5e3;background:#fff;color:#555;cursor:pointer;font-family:Manrope,sans-serif;font-size:11px;font-weight:600;letter-spacing:.06em;transition:all .2s">Appartamento 5</button>
+<button class="fl-ab" data-n="6" onclick="flApt(6)" style="padding:8px 14px;border:1px solid #e5e5e3;background:#fff;color:#555;cursor:pointer;font-family:Manrope,sans-serif;font-size:11px;font-weight:600;letter-spacing:.06em;transition:all .2s">Appartamento 6</button>
+<button class="fl-ab" data-n="7" onclick="flApt(7)" style="padding:8px 14px;border:1px solid #e5e5e3;background:#fff;color:#555;cursor:pointer;font-family:Manrope,sans-serif;font-size:11px;font-weight:600;letter-spacing:.06em;transition:all .2s">Appartamento 7</button>
+  </div>
+<div class="fl-panel" id="fl-1" style="display:block">
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem"><button class="fl-pb" onclick="flPlan(1,0)" style="padding:6px 14px;border:1px solid #C4A77D;background:#C4A77D;color:#fff;cursor:pointer;font-family:Manrope,sans-serif;font-size:10px;font-weight:600;transition:all .2s">Piano Terra</button>
+<button class="fl-pb" onclick="flPlan(1,1)" style="padding:6px 14px;border:1px solid #e5e5e3;background:#fff;color:#666;cursor:pointer;font-family:Manrope,sans-serif;font-size:10px;font-weight:600;transition:all .2s">Piano Primo</button>
+</div>
+  <div style="background:#f5f5f3;padding:1.5rem 1rem;text-align:center;min-height:280px;display:flex;align-items:center;justify-content:center"><img class="fl-img" src="images/planimetrie/app1-pp.jpg" alt="Appartamento 1 Piano Terra" style="display:block;max-height:70vh;max-width:100%;object-fit:contain">
+<img class="fl-img" src="images/planimetrie/app1-pt.jpg" alt="Appartamento 1 Piano Primo" style="display:none;max-height:70vh;max-width:100%;object-fit:contain">
+</div>
+</div>
+<div class="fl-panel" id="fl-2" style="display:none">
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem"><button class="fl-pb" onclick="flPlan(2,0)" style="padding:6px 14px;border:1px solid #C4A77D;background:#C4A77D;color:#fff;cursor:pointer;font-family:Manrope,sans-serif;font-size:10px;font-weight:600;transition:all .2s">Piano Terra</button>
+<button class="fl-pb" onclick="flPlan(2,1)" style="padding:6px 14px;border:1px solid #e5e5e3;background:#fff;color:#666;cursor:pointer;font-family:Manrope,sans-serif;font-size:10px;font-weight:600;transition:all .2s">Piano Primo</button>
+</div>
+  <div style="background:#f5f5f3;padding:1.5rem 1rem;text-align:center;min-height:280px;display:flex;align-items:center;justify-content:center"><img class="fl-img" src="images/planimetrie/app2-pp.jpg" alt="Appartamento 2 Piano Terra" style="display:block;max-height:70vh;max-width:100%;object-fit:contain">
+<img class="fl-img" src="images/planimetrie/app2-pt.jpg" alt="Appartamento 2 Piano Primo" style="display:none;max-height:70vh;max-width:100%;object-fit:contain">
+</div>
+</div>
+<div class="fl-panel" id="fl-3" style="display:none">
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem"><button class="fl-pb" onclick="flPlan(3,0)" style="padding:6px 14px;border:1px solid #C4A77D;background:#C4A77D;color:#fff;cursor:pointer;font-family:Manrope,sans-serif;font-size:10px;font-weight:600;transition:all .2s">Piano Terra</button>
+<button class="fl-pb" onclick="flPlan(3,1)" style="padding:6px 14px;border:1px solid #e5e5e3;background:#fff;color:#666;cursor:pointer;font-family:Manrope,sans-serif;font-size:10px;font-weight:600;transition:all .2s">Piano Primo</button>
+</div>
+  <div style="background:#f5f5f3;padding:1.5rem 1rem;text-align:center;min-height:280px;display:flex;align-items:center;justify-content:center"><img class="fl-img" src="images/planimetrie/app3-pp.jpg" alt="Appartamento 3 Piano Terra" style="display:block;max-height:70vh;max-width:100%;object-fit:contain">
+<img class="fl-img" src="images/planimetrie/app3-pt.jpg" alt="Appartamento 3 Piano Primo" style="display:none;max-height:70vh;max-width:100%;object-fit:contain">
+</div>
+</div>
+<div class="fl-panel" id="fl-4" style="display:none">
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem"><button class="fl-pb" onclick="flPlan(4,0)" style="padding:6px 14px;border:1px solid #C4A77D;background:#C4A77D;color:#fff;cursor:pointer;font-family:Manrope,sans-serif;font-size:10px;font-weight:600;transition:all .2s">Piano Terra</button>
+<button class="fl-pb" onclick="flPlan(4,1)" style="padding:6px 14px;border:1px solid #e5e5e3;background:#fff;color:#666;cursor:pointer;font-family:Manrope,sans-serif;font-size:10px;font-weight:600;transition:all .2s">Piano Primo</button>
+  </div>
+  <div style="background:#f5f5f3;padding:1.5rem 1rem;text-align:center;min-height:280px;display:flex;align-items:center;justify-content:center"><img class="fl-img" src="images/planimetrie/app4-pp.jpg" alt="Appartamento 4 Piano Terra" style="display:block;max-height:70vh;max-width:100%;object-fit:contain">
+<img class="fl-img" src="images/planimetrie/app4-pt.jpg" alt="Appartamento 4 Piano Primo" style="display:none;max-height:70vh;max-width:100%;object-fit:contain">
+  </div>
+</div>
+<div class="fl-panel" id="fl-5" style="display:none">
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem"><button class="fl-pb" onclick="flPlan(5,0)" style="padding:6px 14px;border:1px solid #C4A77D;background:#C4A77D;color:#fff;cursor:pointer;font-family:Manrope,sans-serif;font-size:10px;font-weight:600;transition:all .2s">Piano Terra</button>
+<button class="fl-pb" onclick="flPlan(5,1)" style="padding:6px 14px;border:1px solid #e5e5e3;background:#fff;color:#666;cursor:pointer;font-family:Manrope,sans-serif;font-size:10px;font-weight:600;transition:all .2s">Piano Primo</button>
+</div>
+  <div style="background:#f5f5f3;padding:1.5rem 1rem;text-align:center;min-height:280px;display:flex;align-items:center;justify-content:center"><img class="fl-img" src="images/planimetrie/app5-pp.jpg" alt="Appartamento 5 Piano Terra" style="display:block;max-height:70vh;max-width:100%;object-fit:contain">
+<img class="fl-img" src="images/planimetrie/app5-pt.jpg" alt="Appartamento 5 Piano Primo" style="display:none;max-height:70vh;max-width:100%;object-fit:contain">
+</div>
+</div>
+<div class="fl-panel" id="fl-6" style="display:none">
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem"><button class="fl-pb" onclick="flPlan(6,0)" style="padding:6px 14px;border:1px solid #C4A77D;background:#C4A77D;color:#fff;cursor:pointer;font-family:Manrope,sans-serif;font-size:10px;font-weight:600;transition:all .2s">Piano Terra</button>
+<button class="fl-pb" onclick="flPlan(6,1)" style="padding:6px 14px;border:1px solid #e5e5e3;background:#fff;color:#666;cursor:pointer;font-family:Manrope,sans-serif;font-size:10px;font-weight:600;transition:all .2s">Piano Primo</button>
+</div>
+  <div style="background:#f5f5f3;padding:1.5rem 1rem;text-align:center;min-height:280px;display:flex;align-items:center;justify-content:center"><img class="fl-img" src="images/planimetrie/app6-pp.jpg" alt="Appartamento 6 Piano Terra" style="display:block;max-height:70vh;max-width:100%;object-fit:contain">
+<img class="fl-img" src="images/planimetrie/app6-pt.jpg" alt="Appartamento 6 Piano Primo" style="display:none;max-height:70vh;max-width:100%;object-fit:contain">
+</div>
+</div>
+<div class="fl-panel" id="fl-7" style="display:none">
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem"><button class="fl-pb" onclick="flPlan(7,0)" style="padding:6px 14px;border:1px solid #C4A77D;background:#C4A77D;color:#fff;cursor:pointer;font-family:Manrope,sans-serif;font-size:10px;font-weight:600;transition:all .2s">Piano Terra</button>
+<button class="fl-pb" onclick="flPlan(7,1)" style="padding:6px 14px;border:1px solid #e5e5e3;background:#fff;color:#666;cursor:pointer;font-family:Manrope,sans-serif;font-size:10px;font-weight:600;transition:all .2s">Piano Primo</button>
+</div>
+  <div style="background:#f5f5f3;padding:1.5rem 1rem;text-align:center;min-height:280px;display:flex;align-items:center;justify-content:center"><img class="fl-img" src="images/planimetrie/app7-pp.jpg" alt="Appartamento 7 Piano Terra" style="display:block;max-height:70vh;max-width:100%;object-fit:contain">
+<img class="fl-img" src="images/planimetrie/app7-pt.jpg" alt="Appartamento 7 Piano Primo" style="display:none;max-height:70vh;max-width:100%;object-fit:contain">
+</div>
+</div>
+<script>
+function flApt(n){
+  document.querySelectorAll(".fl-panel").forEach(function(p){p.style.display="none"});
+  document.getElementById("fl-"+n).style.display="block";
+  document.querySelectorAll(".fl-ab").forEach(function(b){
+    b.style.background="#fff";b.style.color="#555";b.style.borderColor="#e5e5e3";
+  });
+  var a=document.querySelector(".fl-ab[data-n=\""+n+"\"]");
+  if(a){a.style.background="#111";a.style.color="#fff";a.style.borderColor="#111";}
+  lucide.createIcons();
+}
+function flPlan(apt,p){
+  var panel=document.getElementById("fl-"+apt);
+  panel.querySelectorAll(".fl-img").forEach(function(img,i){
+    img.style.display=i===p?"block":"none";
+  });
+  panel.querySelectorAll(".fl-pb").forEach(function(b,i){
+    b.style.background=i===p?"#C4A77D":"#fff";
+    b.style.color=i===p?"#fff":"#666";
+    b.style.borderColor=i===p?"#C4A77D":"#e5e5e3";
+  });
+}
+</script>
+</div>
+</section>
+
+<!-- ═══════════ COMMERCIALIZZAZIONE ═══════════ -->
+<section id="commercializzazione" style="background:#fff;padding:6rem 0">
+  <div style="max-width:1152px;margin:0 auto;padding:0 1.5rem">
+    <div id="comm-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center">
+
+      <!-- Colonna sinistra: testo + logo + link -->
+      <div class="rv">
+        <p style="font-family:'Manrope',sans-serif;font-size:9px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#C4A77D;margin-bottom:10px">Commercializzazione</p>
+        <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(26px,3.8vw,40px);font-weight:700;color:#111;margin-bottom:1.5rem;line-height:1.2">Vendita in Esclusiva</h2>
+        <p style="font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.88;color:#555;margin-bottom:1rem">
+          Il progetto Utopia è commercializzato in esclusiva assoluta da <strong style="font-weight:600;color:#111">Ghergo Immobiliare</strong> — agenzia di riferimento nel territorio marchigiano.
+        </p>
+        <p style="font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.88;color:#555;margin-bottom:2.5rem">
+          Ogni cliente è seguito personalmente in ogni fase: dalla prima visita al rogito notarile, con massima trasparenza e professionalità.
+        </p>
+        <!-- Logo Ghergo Immobiliare -->
+        <div style="margin-bottom:1.5rem">
+          <img src="images/logo-ghergo.jpg" alt="Ghergo Immobiliare" style="max-width:200px;height:auto;display:block">
+        </div>
+        <!-- Sito web -->
+        <a href="https://www.ghergoimmobiliare.com" target="_blank" rel="noopener noreferrer"
+           style="display:inline-flex;align-items:center;gap:6px;font-family:'Manrope',sans-serif;font-size:16px;font-weight:700;color:#111;text-decoration:none;border-bottom:2px solid #C4A77D;padding-bottom:4px;letter-spacing:.03em;transition:opacity .2s"
+           onmouseover="this.style.opacity='.65'" onmouseout="this.style.opacity='1'">
+          www.ghergoimmobiliare.com
+          <i data-lucide="external-link" style="width:13px;height:13px;color:#C4A77D"></i>
+        </a>
+      </div>
+
+      <!-- Colonna destra: foto + nome -->
+      <div class="rv d1" style="text-align:center">
+        <div style="margin-bottom:1.25rem">
+          <img src="images/diego-ghergo.png" alt="Diego Ghergo - CEO Ghergo Immobiliare" style="max-width:100%;max-height:420px;object-fit:contain;display:block;margin:0 auto">
+        </div>
+        <p style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#111;margin-bottom:4px">Diego Ghergo</p>
+        <p style="font-family:'DM Sans',sans-serif;font-size:13px;color:#888;letter-spacing:.06em;text-transform:uppercase">CEO &nbsp;·&nbsp; Ghergo Immobiliare</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CONTATTI ═══════════ -->
+<section id="contatti" style="background:#f5f5f3;padding:6rem 0">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-[1fr_1.4fr] gap-16 items-start">
+
+      <!-- Left: testo -->
+      <div class="rv">
+        <p style="font-family:'Manrope',sans-serif;font-size:9px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#C4A77D;margin-bottom:10px">Parliamo</p>
+        <h2 style="font-size:clamp(26px,3.5vw,40px);line-height:1.2;margin-bottom:1.4rem">Inizia il tuo percorso verso casa</h2>
+        <p style="font-size:15px;line-height:1.85;color:#555;max-width:380px">
+          Compila il modulo per essere ricontattato da un nostro consulente. Ti risponderemo entro 24 ore.
+        </p>
+      </div>
+
+      <!-- Right: form -->
+      <div class="rv d1" style="background:#fff;padding:2.5rem;border:1px solid #e5e5e3">
+        <form id="contact-form" action="https://formsubmit.co/gmelese@ghergoimmobiliare.com" method="POST">
+          <input type="hidden" name="_subject"      value="Nuova richiesta — Utopia Living">
+          <input type="hidden" name="_captcha"      value="false">
+          <input type="hidden" name="_template"     value="table">
+          <input type="hidden" name="_replyto"      value="">
+          <input type="hidden" name="_autoresponse" value="Grazie per la tua richiesta! Ti ricontatteremo entro 24 ore. — Ghergo Immobiliare">
+          <input type="hidden" name="_next"         value="https://utopia.ghergoimmobiliare.com/#contatti-ok">
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
+            <div>
+              <label style="display:block;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:#aaa;margin-bottom:6px">Nome *</label>
+              <input id="f-nome" name="Nome" type="text" placeholder="Marco" required class="fld">
+            </div>
+            <div>
+              <label style="display:block;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:#aaa;margin-bottom:6px">Cognome *</label>
+              <input id="f-cognome" name="Cognome" type="text" placeholder="Rossi" required class="fld">
+            </div>
+          </div>
+          <div style="margin-bottom:14px">
+            <label style="display:block;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:#aaa;margin-bottom:6px">Email *</label>
+            <input id="f-email" name="Email" type="email" placeholder="nome@email.it" required class="fld">
+          </div>
+          <div style="margin-bottom:14px">
+            <label style="display:block;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:#aaa;margin-bottom:6px">Telefono</label>
+            <input id="f-tel" name="Telefono" type="tel" placeholder="+39 000 000 0000" class="fld">
+          </div>
+          <div style="margin-bottom:20px">
+            <label style="display:block;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:#aaa;margin-bottom:6px">Messaggio</label>
+            <textarea id="f-msg" name="Messaggio" rows="4" placeholder="Scrivi qui la tua richiesta…" class="fld" style="resize:none"></textarea>
+          </div>
+          <button type="submit" id="f-btn"
+            style="width:100%;display:flex;align-items:center;justify-content:center;gap:8px;
+                   background:#111;color:#fff;font-family:'Manrope',sans-serif;font-weight:700;
+                   font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:16px;
+                   border:none;cursor:pointer;transition:background .2s"
+            onmouseover="this.style.background='#C4A77D';this.style.color='#111'"
+            onmouseout="this.style.background='#111';this.style.color='#fff'">
+            <i data-lucide="send" style="width:13px;height:13px"></i>
+            Invia Richiesta
+          </button>
+          <p id="f-msg-ok" style="display:none;text-align:center;margin-top:14px;font-size:13px;color:#3a7d44;font-weight:600;padding:10px;background:#e8f5e9;border-radius:4px">✓ Messaggio inviato! Ti ricontatteremo entro 24 ore.</p>
+          <p style="text-align:center;margin-top:12px;font-size:11px;color:#bbb">I tuoi dati sono trattati con la massima riservatezza.</p>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer style="background:#111;padding:3rem 0">
+  <div class="max-w-6xl mx-auto px-6">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem">
+      <a href="#" style="display:flex;align-items:center;line-height:0">
+        <img src="images/utopia-logo-white.png" alt="Utopia Living" style="height:88px;width:auto;display:block;object-fit:contain">
+      </a>
+      <nav style="display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem">
+        <a href="#progetto" style="font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3)" onmouseover="this.style.color='#C4A77D'" onmouseout="this.style.color='rgba(255,255,255,.3)'">Progetto</a>
+        <a href="#commercializzazione" style="font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3)" onmouseover="this.style.color='#C4A77D'" onmouseout="this.style.color='rgba(255,255,255,.3)'">Agenzia</a>
+        <a href="#energia" style="font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3)" onmouseover="this.style.color='#C4A77D'" onmouseout="this.style.color='rgba(255,255,255,.3)'">Energia</a>
+        <a href="#caratteristiche" style="font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3)" onmouseover="this.style.color='#C4A77D'" onmouseout="this.style.color='rgba(255,255,255,.3)'">Caratteristiche</a>
+        <a href="#appartamenti" style="font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3)" onmouseover="this.style.color='#C4A77D'" onmouseout="this.style.color='rgba(255,255,255,.3)'">Residenze</a>
+        <a href="#contatti" style="font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3)" onmouseover="this.style.color='#C4A77D'" onmouseout="this.style.color='rgba(255,255,255,.3)'">Contatti</a>
+      </nav>
+      <p style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:rgba(255,255,255,.75);letter-spacing:.04em">© 2026 Ghergo Immobiliare S.r.l.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+lucide.createIcons();
+
+// ── Form: _replyto + conferma invio ─────────────────────────────
+(function(){
+  var emailField = document.getElementById('f-email');
+  var replyField = document.querySelector('input[name="_replyto"]');
+  if(emailField && replyField){
+    emailField.addEventListener('input', function(){ replyField.value = this.value; });
+  }
+  // Se la pagina torna con #contatti-ok → mostra conferma
+  if(window.location.hash === '#contatti-ok'){
+    var ok = document.getElementById('f-msg-ok');
+    if(ok){
+      ok.style.display = 'block';
+      // Scroll al form
+      var sec = document.getElementById('contatti');
+      if(sec) setTimeout(function(){ sec.scrollIntoView({behavior:'smooth'}); }, 300);
+    }
+  }
+})();
+
+// Navbar scroll
+const nb = document.getElementById('nb');
+const nl = document.getElementById('nlogo');
+const nc = document.getElementById('ncta');
+window.addEventListener('scroll', () => {
+  const s = window.scrollY > 70;
+  nb.style.background   = s ? '#fff' : 'transparent';
+  nb.style.borderBottom = s ? '1px solid #e5e5e3' : '1px solid transparent';
+  // Logo img: filter per visibilità su sfondo scuro vs chiaro
+  nl.style.opacity      = s ? '1' : '0.95'; // nessun filtro
+  nc.style.color        = s ? '#111' : '#fff';
+  nc.style.borderColor  = s ? '#ddd' : 'rgba(255,255,255,.35)';
+  var up=document.getElementById('u-path');if(up)up.style.stroke=s?'#C4A77D':'#FFFFFF';
+}, {passive:true});
+
+// Reveal on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); obs.unobserve(e.target); } });
+}, {threshold:0.1, rootMargin:'0px 0px -28px 0px'});
+document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
